@@ -1,4 +1,4 @@
-# adventures
+# Adventures
 A traveling agency
 
 ```bash
