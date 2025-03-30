@@ -10,8 +10,8 @@ def inject_globals():
         "year": 2025,
         "phone": '067 735 2242',
         "email": 'hello@thriftyadventures.co.za',
-        "address": "A108 Adam Street</p><p>New York, NY 535022",
-        "copyright_notice": f"© {datetime.now().year} My Company. All rights reserved.",
+        "address": "395 Francis Baard Street</p><p>Pretoria, GP 0001/2",
+        "copyright_notice": f"© {datetime.now().year} { company }. All rights reserved.",
         "copyright": f"""© <span>{datetime.now().year}</span><strong class="px-1 sitename">{ company }.</strong> <span>All Rights Reserved.</span>""",
     }
 
