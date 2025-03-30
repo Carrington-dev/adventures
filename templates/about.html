@@ -3,174 +3,99 @@
 {% block title %}Thrift Experiences |{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
-<section id="hero" class="hero section">
 
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
+<!-- Featured Services Section -->
+<section id="featured-services" class="featured-services section">
 
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
-          <div class="company-badge mb-4">
-            <i class="bi bi-gear-fill me-2"></i>
-            Working for your success
-          </div>
+  <div class="container">
 
-          <h1 class="mb-4">
-            Maecenas Vitae <br>
-            Consectetur Led <br>
-            <span class="accent-text">Vestibulum Ante</span>
-          </h1>
+    <div class="row gy-4">
 
-          <p class="mb-4 mb-md-5">
-            Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
-            Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#about" class="btn btn-primary me-0 me-sm-2 mx-1">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-link mt-2 mt-sm-0 glightbox">
-              <i class="bi bi-play-circle me-1"></i>
-              Play Video
-            </a>
-          </div>
+      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item position-relative">
+          <div class="icon"><i class="bi bi-activity icon"></i></div>
+          <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
+          <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
         </div>
-      </div>
+      </div><!-- End Service Item -->
 
-      <div class="col-lg-6">
-        <div class="hero-image" data-aos="zoom-out" data-aos-delay="300">
-          <img src="{{ url_for('static', filename='img/illustration-1.webp') }}" alt="Hero Image" class="img-fluid">
+      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-item position-relative">
+          <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+          <h4><a href="" class="stretched-link">Sed ut perspici</a></h4>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+        </div>
+      </div><!-- End Service Item -->
 
-          <div class="customers-badge">
-            <div class="customer-avatars">
-              <img src="{{ url_for('static', filename='img/avatar-1.webp') }}" alt="Customer 1" class="avatar">
-              <img src="{{ url_for('static', filename='img/avatar-2.webp') }}" alt="Customer 2" class="avatar">
-              <img src="{{ url_for('static', filename='img/avatar-3.webp') }}" alt="Customer 3" class="avatar">
-              <img src="{{ url_for('static', filename='img/avatar-4.webp') }}" alt="Customer 4" class="avatar">
-              <img src="{{ url_for('static', filename='img/avatar-5.webp') }}" alt="Customer 5" class="avatar">
-              <span class="avatar more">12+</span>
-            </div>
-            <p class="mb-0 mt-2">12,000+ lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-          </div>
+      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-item position-relative">
+          <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+          <h4><a href="" class="stretched-link">Magni Dolores</a></h4>
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
         </div>
-      </div>
-    </div>
+      </div><!-- End Service Item -->
 
-    <div class="row stats-row gy-4 mt-5" data-aos="fade-up" data-aos-delay="500">
-      <div class="col-lg-3 col-md-6">
-        <div class="stat-item">
-          <div class="stat-icon">
-            <i class="bi bi-trophy"></i>
-          </div>
-          <div class="stat-content">
-            <h4>3x Won Awards</h4>
-            <p class="mb-0">Vestibulum ante ipsum</p>
-          </div>
+      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-item position-relative">
+          <div class="icon"><i class="bi bi-broadcast icon"></i></div>
+          <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
+          <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
         </div>
-      </div>
-      <div class="col-lg-3 col-md-6">
-        <div class="stat-item">
-          <div class="stat-icon">
-            <i class="bi bi-briefcase"></i>
-          </div>
-          <div class="stat-content">
-            <h4>6.5k Faucibus</h4>
-            <p class="mb-0">Nullam quis ante</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6">
-        <div class="stat-item">
-          <div class="stat-icon">
-            <i class="bi bi-graph-up"></i>
-          </div>
-          <div class="stat-content">
-            <h4>80k Mauris</h4>
-            <p class="mb-0">Etiam sit amet orci</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6">
-        <div class="stat-item">
-          <div class="stat-icon">
-            <i class="bi bi-award"></i>
-          </div>
-          <div class="stat-content">
-            <h4>6x Phasellus</h4>
-            <p class="mb-0">Vestibulum ante ipsum</p>
-          </div>
-        </div>
-      </div>
+      </div><!-- End Service Item -->
+
     </div>
 
   </div>
 
-</section><!-- /Hero Section -->
+</section><!-- /Featured Services Section -->
 
 <!-- About Section -->
-<section id="about" class="about section">
+<section id="about" class="about section light-background">
 
-  <div class="container" data-aos="fade-up" data-aos-delay="100">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>About</h2>
+    <p><span>Find Out More</span> <span class="description-title">About Us</span></p>
+  </div><!-- End Section Title -->
 
-    <div class="row gy-4 align-items-center justify-content-between">
+  <div class="container">
 
-      <div class="col-xl-5" data-aos="fade-up" data-aos-delay="200">
-        <span class="about-meta">MORE ABOUT US</span>
-        <h2 class="about-title">Voluptas enim suscipit temporibus</h2>
-        <p class="about-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    <div class="row gy-3">
 
-        <div class="row feature-list-wrapper">
-          <div class="col-md-6">
-            <ul class="feature-list">
-              <li><i class="bi bi-check-circle-fill"></i> Lorem ipsum dolor sit amet</li>
-              <li><i class="bi bi-check-circle-fill"></i> Consectetur adipiscing elit</li>
-              <li><i class="bi bi-check-circle-fill"></i> Sed do eiusmod tempor</li>
-            </ul>
-          </div>
-          <div class="col-md-6">
-            <ul class="feature-list">
-              <li><i class="bi bi-check-circle-fill"></i> Incididunt ut labore et</li>
-              <li><i class="bi bi-check-circle-fill"></i> Dolore magna aliqua</li>
-              <li><i class="bi bi-check-circle-fill"></i> Ut enim ad minim veniam</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="info-wrapper">
-          <div class="row gy-4">
-            <div class="col-lg-5">
-              <div class="profile d-flex align-items-center gap-3">
-                <img src="{{ url_for('static', filename='img/avatar-1.webp') }}" alt="CEO Profile" class="profile-image">
-                <div>
-                  <h4 class="profile-name">Mario Smith</h4>
-                  <p class="profile-position">CEO &amp; Founder</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-7">
-              <div class="contact-info d-flex align-items-center gap-2">
-                <i class="bi bi-telephone-fill"></i>
-                <div>
-                  <p class="contact-label">Call us anytime</p>
-                  <p class="contact-number">+123 456-789</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <img src="{{ url_for('static', filename='img/about.jpg') }}" alt="" class="img-fluid">
       </div>
 
-      <div class="col-xl-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="image-wrapper">
-          <div class="images position-relative" data-aos="zoom-out" data-aos-delay="400">
-            <img src="{{ url_for('static', filename='img/about-5.webp') }}" alt="Business Meeting" class="img-fluid main-image rounded-4">
-            <img src="{{ url_for('static', filename='img/about-2.webp') }}" alt="Team Discussion" class="img-fluid small-image rounded-4">
-          </div>
-          <div class="experience-badge floating">
-            <h3>15+ <span>Years</span></h3>
-            <p>Of experience in business service</p>
-          </div>
+      <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="about-content ps-0 ps-lg-3">
+          <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+          <p class="fst-italic">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua.
+          </p>
+          <ul>
+            <li>
+              <i class="bi bi-diagram-3"></i>
+              <div>
+                <h4>Ullamco laboris nisi ut aliquip consequat</h4>
+                <p>Magni facilis facilis repellendus cum excepturi quaerat praesentium libre trade</p>
+              </div>
+            </li>
+            <li>
+              <i class="bi bi-fullscreen-exit"></i>
+              <div>
+                <h4>Magnam soluta odio exercitationem reprehenderi</h4>
+                <p>Quo totam dolorum at pariatur aut distinctio dolorum laudantium illo direna pasata redi</p>
+              </div>
+            </li>
+          </ul>
+          <p>
+            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum
+          </p>
         </div>
+
       </div>
     </div>
 
@@ -178,157 +103,5 @@
 
 </section><!-- /About Section -->
 
-
-
-    <!-- Features Section -->
-    <section id="features" class="features section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Features</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-
-        <div class="d-flex justify-content-center">
-
-          <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
-
-            <li class="nav-item">
-              <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#features-tab-1">
-                <h4>Modisit</h4>
-              </a>
-            </li><!-- End tab nav item -->
-
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-2">
-                <h4>Praesenti</h4>
-              </a><!-- End tab nav item -->
-
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#features-tab-3">
-                <h4>Explica</h4>
-              </a>
-            </li><!-- End tab nav item -->
-
-          </ul>
-
-        </div>
-
-        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="tab-pane fade active show" id="features-tab-1">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>Voluptatem dignissimos provident</h3>
-                <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{{ url_for('static', filename='img/features-illustration-1.webp') }}" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End tab content item -->
-
-          <div class="tab-pane fade" id="features-tab-2">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>Neque exercitationem debitis</h3>
-                <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.
-                </p>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{{ url_for('static', filename='img/features-illustration-2.webp') }}" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End tab content item -->
-
-          <div class="tab-pane fade" id="features-tab-3">
-            <div class="row">
-              <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                <h3>Voluptatibus commodi accusamu</h3>
-                <ul>
-                  <li><i class="bi bi-check2-all"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                  <li><i class="bi bi-check2-all"></i> <span>Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</span></li>
-                </ul>
-                <p class="fst-italic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                  magna aliqua.
-                </p>
-              </div>
-              <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="{{ url_for('static', filename='img/features-illustration-3.webp') }}" alt="" class="img-fluid">
-              </div>
-            </div>
-          </div><!-- End tab content item -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Features Section -->
-
-    <!-- Features Cards Section -->
-    <section id="features-cards" class="features-cards section">
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-            <div class="feature-box orange">
-              <i class="bi bi-award"></i>
-              <h4>Corporis voluptates</h4>
-              <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-            </div>
-          </div><!-- End Feature Borx-->
-
-          <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-            <div class="feature-box blue">
-              <i class="bi bi-patch-check"></i>
-              <h4>Explicabo consectetur</h4>
-              <p>Est autem dicta beatae suscipit. Sint veritatis et sit quasi ab aut inventore</p>
-            </div>
-          </div><!-- End Feature Borx-->
-
-          <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-            <div class="feature-box green">
-              <i class="bi bi-sunrise"></i>
-              <h4>Ullamco laboris</h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-            </div>
-          </div><!-- End Feature Borx-->
-
-          <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-            <div class="feature-box red">
-              <i class="bi bi-shield-check"></i>
-              <h4>Labore consequatur</h4>
-              <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
-            </div>
-          </div><!-- End Feature Borx-->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Features Cards Section -->
 {% endblock %}
 
