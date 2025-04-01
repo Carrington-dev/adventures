@@ -1,3 +1,4 @@
+
 from datetime import datetime
 from flask import render_template, jsonify
 from src import app
@@ -8,7 +9,7 @@ def inject_globals():
     return {
         "company": company,
         "year": 2025,
-        "phone": '067 735 2242',
+        "phone": '+27 (0)67 735 2242',
         "email": 'hello@thriftyadventures.co.za',
         "address": "395 Francis Baard Street</p><p>Pretoria Central, 0001/2</p><p>South Africa",
         "copyright_notice": f"© {datetime.now().year} { company }. All rights reserved.",
