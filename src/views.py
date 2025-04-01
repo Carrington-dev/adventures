@@ -1,6 +1,7 @@
+from src import app
+from datetime import datetime
+from flask import render_template
 
-<<<<<<< Updated upstream
-=======
 @app.context_processor
 def inject_globals():
     company = "Thrifty Adventures"
@@ -51,4 +52,3 @@ def team():
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
->>>>>>> Stashed changes
