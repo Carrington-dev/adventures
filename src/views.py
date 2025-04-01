@@ -1,6 +1,6 @@
 
 from datetime import datetime
-from flask import render_template, jsonify
+from flask import render_template
 from src import app
 
 @app.context_processor
@@ -19,19 +19,6 @@ def inject_globals():
 @app.route("/")
 def home():
     return render_template("index.html")
-
-# @app.route("/pricing")
-@app.route("/api/home")
-def api_home():
-    return jsonify({
-        "message": "Hi Carrington, my name is Wonderful"
-    })
-
-@app.route("/api/about")
-def api_about():
-    return jsonify({
-        "message": "About Us"
-    }) 
 
 # @app.route("/features")
 @app.route("/about")
