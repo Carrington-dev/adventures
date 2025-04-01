@@ -1,6 +1,7 @@
-from src import app
+
 from datetime import datetime
-from flask import render_template
+from flask import render_template, jsonify
+from src import app
 
 @app.context_processor
 def inject_globals():
