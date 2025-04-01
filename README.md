@@ -124,4 +124,4 @@ This will check:
 ✅ Logout functions correctly  
 ✅ Dashboard is protected and redirects to login  
 
-Would you like to add **integration tests, API testing, or security penetration testing**? 🚀
+<!-- Would you like to add **integration tests, API testing, or security penetration testing**? 🚀 -->
