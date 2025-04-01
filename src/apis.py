@@ -1,6 +1,8 @@
 from flask import jsonify
 from src import app
 
+users = []
+
 @app.route("/api/home")
 def api_home():
     return jsonify({
@@ -12,3 +14,11 @@ def api_about():
     return jsonify({
         "message": "About Us"
     }) 
+
+@app.route("/api/users")
+def get_all_users():
+    return users
+
+@app.route("/api/users")
+def create_a_user():
+    return users
