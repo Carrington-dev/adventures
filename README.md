@@ -119,6 +119,11 @@ sudo ln -s /home/ubuntu/adventures/settings/ad.conf /etc/nginx/sites-available/
 sudo ln -s /etc/nginx/sites-available/ad.conf /etc/nginx/sites-enabled
 
 ```
+```bash
+https://roadtrippers.co.za/contact-us/
+https://www.thriftyadventures.co.za/pages/contact
+https://www.roadtravel.co.za/
+```
 
 ---
 
