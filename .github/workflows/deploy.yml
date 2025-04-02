@@ -43,7 +43,7 @@ jobs:
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.DO_HOST }}
-          username: linuxserver.io
+          username: ${{ secrets.DO_USER }}
           password: ${{ secrets.DO_PASSWORD }}
           port: ${{ secrets.DO_PORT }}
           script: whoami
