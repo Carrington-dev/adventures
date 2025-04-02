@@ -43,11 +43,14 @@ def add_user():
         
 
     # Create a new user and save it to the database
-    new_user = User(username=username, email=email)
-    db.session.add(new_user)
-    db.session.commit()
+    try:
+        new_user = User(username=username, email=email, first_name=first_name, last_name=last_name)
+        db.session.add(new_user)
+        db.session.commit()
 
-    return jsonify({'message': 'User added successfully'}), 201
+        return jsonify({'message': 'User added successfully'}), 201
+    except:
+        return jsonify({'message': 'User with similar credentials already exists'}), 400
 
 @app.route("/subscribe")
 def subscribe():
