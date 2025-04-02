@@ -41,8 +41,12 @@ jobs:
       - name: SSH into DigitalOcean and Deploy
         uses: appleboy/ssh-action@master
         with:
-          host: 157.245.140.54
-          username: ubuntu
+          host: ${{ secrets.DO_HOST }}
+          USERNAME: ${{ secrets.DO_USER }}
+          PORT: ${{ secrets.DO_PORT }}
+          KEY: ${{ secrets.DO_SSH_KEY }}
+          # host: 157.245.140.54
+          # username: ubuntu
           # host: ${{ secrets.DO_HOST }}
           # username: ${{ secrets.DO_USER }}
           # key: ${{ secrets.DO_SSH_KEY }}
