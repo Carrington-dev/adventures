@@ -21,8 +21,8 @@ def get_all_users():
     """
     Get all users
     ---
-    tags:
-      - Users
+    # tags:
+    #   - Users
     responses:
       200:
         description: A list of all users
@@ -49,8 +49,8 @@ def add_user():
     """
     Creates a new user
     ---
-    tags:
-      - Users
+    # tags:
+    #   - Users
     parameters:
       - name: body
         in: body
@@ -112,8 +112,8 @@ def subscribe():
     """
     Simple Subscribe API
     ---
-    tags:
-      - Simple Views
+    # tags:
+    #   - Simple Views
     responses:
       200:
         description: Returns a feedback message
