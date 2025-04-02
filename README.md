@@ -107,6 +107,9 @@ def test_protected_dashboard(client):
     assert response.status_code == 200
     assert b"Login" in response.data  # Should redirect to login page
 
+```
+
+```bash
 sudo ln -s /home/ubuntu/adventures/settings/gunicorn.socket /etc/systemd/system/gunicorn.socket
 sudo ln -s /home/ubuntu/adventures/settings/gunicorn.service /etc/systemd/system/gunicorn.service
 sudo systemctl start gunicorn
