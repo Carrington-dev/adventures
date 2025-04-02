@@ -27,6 +27,21 @@ def api_home():
 
 @app.route("/api/about")
 def api_about():
+    """
+    Home API
+    ---
+    # tags:
+    #   - Simple Views
+    responses:
+      200:
+        description: Returns a feedback message
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: "About Us"
+    """
     return jsonify({
         "message": "About Us"
     }) 
