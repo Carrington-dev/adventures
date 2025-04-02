@@ -53,11 +53,10 @@ jobs:
             git pull origin main
             source venv/bin/activate
             pip install -r requirements.txt
-            sudo systemctl restart gunicorn
-            echo "${{ secrets.DO_PASSWORD }}" 
-
-            sudo service nginx restart
-            echo "${{ secrets.DO_PASSWORD }}"
+            # sudo systemctl restart gunicorn
+            
+            echo "${{ secrets.DO_PASSWORD }}" | sudo service gunicorn restart            
+            echo "${{ secrets.DO_PASSWORD }}" | sudo service nginx restart
 
 
       # - name: SSH into DigitalOcean and Deploy
