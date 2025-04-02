@@ -54,7 +54,11 @@ jobs:
             source venv/bin/activate
             pip install -r requirements.txt
             sudo systemctl restart gunicorn
+            echo "${{ secrets.DO_PASSWORD }}" 
+
             sudo service nginx restart
+            echo "${{ secrets.DO_PASSWORD }}"
+
 
       # - name: SSH into DigitalOcean and Deploy
       #   uses: appleboy/ssh-action@master
