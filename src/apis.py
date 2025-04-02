@@ -22,3 +22,44 @@ def get_all_users():
 @app.route("/api/users")
 def create_a_user():
     return users
+@app.route('/api/users', methods=['POST'])
+def add_user():
+    # Get data from the incoming POST request
+    data = request.get_json()
+    id = str(uuid.uuid4())
+    first_name = data.get('first_name')
+    last_name = data.get('last_name')
+    username = data.get('username')
+    email = data.get('email')
+
+    # Check if username and email are provided
+    if not username or not email:
+        return jsonify({'message': 'Username and email are required'}), 400
+        
+    if not id:
+        return jsonify({"message": 'Id is required'}), 400
+        
+
+    # Create a new user and save it to the database
+    try:
+        new_user = User(username=username, email=email, first_name=first_name, last_name=last_name)
+        db.session.add(new_user)
+        db.session.commit()
+
+        return jsonify({'message': 'User added successfully'}), 201
+    except:
+        db.session.rollback()  # Rollback the failed transaction
+        return jsonify({'message': 'User with similar credentials already exists'}), 400
+
+@app.route("/subscribe")
+def subscribe():
+    return jsonify({
+        "message": "You are now subscribed to our newsletter!."
+    })
+
+@app.route('/api/users/<int:user_id>', methods=['GET'])
+def get_user_fast(user_id):
+    user = User.query.get(user_id)  # Returns None if user not found
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+    return jsonify(user)
