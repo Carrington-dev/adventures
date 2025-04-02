@@ -160,6 +160,45 @@ def subscribe():
 
 @app.route('/api/users/<int:user_id>', methods=['GET'])
 def get_user_fast(user_id):
+    """
+    Get User by ID
+    ---
+    # tags:
+    #   - Users
+    summary: Retrieve a user by their unique ID
+    notes: Use this endpoint to fetch user details by providing their unique user ID.
+    parameters:
+      - name: user_id
+        in: path
+        type: integer
+        required: true
+        description: The unique ID of the user
+        example: 1
+    responses:
+      200:
+        description: User details retrieved successfully
+        schema:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            first_name:
+              type: string
+              example: "Carma"
+            last_name:
+              type: string
+              example: "Mudau"
+            username:
+              type: string
+              example: "can96"
+            email:
+              type: string
+              example: "cr56m@gms.com"
+      404:
+        description: User not found
+    """
+
     user = User.query.get(user_id)  # Returns None if user not found
     if not user:
         return jsonify({'error': 'User not found'}), 404
