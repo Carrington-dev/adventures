@@ -58,7 +58,9 @@ def subscribe():
         "message": "You are now subscribed to our newsletter!."
     })
 
-@app.route('/user/<int:user_id>', methods=['GET'])
+@app.route('/api/users/<int:user_id>', methods=['GET'])
 def get_user_fast(user_id):
-    user = User.query.filter_by(id=user_id).first_or_404(description="User not found")
-    return jsonify({'id': user.id, 'username': user.username, 'email': user.email})
+    user = User.query.get(user_id)  # Returns None if user not found
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+    return jsonify(user)
