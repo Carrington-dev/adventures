@@ -47,11 +47,12 @@ jobs:
           password: ${{ secrets.DO_PASSWORD }}
           port: ${{ secrets.DO_PORT }}
           script: |
-            whoami
+            cd adventures
             git pull origin main
             source venv/bin/activate
             pip install -r requirements.txt
             sudo systemctl restart gunicorn
+            sudo service nginx restart
 
       # - name: SSH into DigitalOcean and Deploy
       #   uses: appleboy/ssh-action@master
