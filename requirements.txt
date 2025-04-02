@@ -3,3 +3,4 @@ pytest
 gunicorn
 # SQLAlchemy
 flask-sqlalchemy
+flasgger

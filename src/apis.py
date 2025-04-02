@@ -24,6 +24,41 @@ def get_all_users():
 
 @app.route('/api/users', methods=['POST'])
 def add_user():
+    """
+    Register a new user
+    ---
+    tags:
+      - Users
+    parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          required:
+            - username
+            - last_name
+            - first_name
+            - email
+          properties:
+            first_name:
+              type: string
+              example: Maanda
+            last_name:
+              type: string
+              example: Muleya
+            username:
+              type: string
+              example: johndoe
+            email:
+              type: string
+              example: johndoe@example.com
+    responses:
+      201:
+        description: User registered successfully
+      400:
+        description: User with this username or email already exists
+    """
     # Get data from the incoming POST request
     data = request.get_json()
     id = str(uuid.uuid4())
