@@ -48,8 +48,10 @@ jobs:
           port: ${{ secrets.DO_PORT }}
           script: |
             whoami
-            ls -a
-            pwd
+            git pull origin main
+            source venv/bin/activate
+            pip install -r requirements.txt
+            sudo systemctl restart gunicorn
 
       # - name: SSH into DigitalOcean and Deploy
       #   uses: appleboy/ssh-action@master
