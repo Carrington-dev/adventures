@@ -48,6 +48,8 @@ jobs:
           port: ${{ secrets.DO_PORT }}
           script: |
             cd adventures
+            eval $(ssh-agent -s)
+            ssh-add ~/.ssh/id_git_key
             git pull origin main
             source venv/bin/activate
             pip install -r requirements.txt
