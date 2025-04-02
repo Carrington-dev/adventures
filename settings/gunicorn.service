@@ -11,7 +11,7 @@ ExecStart=/home/ubuntu/adventures/venv/bin/gunicorn \
           --access-logfile - \
           --workers 3 \
           --bind unix:/run/gunicorn.sock \
-          stemflex.wsgi:application
+          wsgi:app
 Restart=always
 
 [Install]
