@@ -38,17 +38,15 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Build
-        runs-on: ubuntu-latest
-        steps:
-          - name: executing remote ssh commands using password
-            uses: appleboy/ssh-action@v1
-            with:
-              host: ${{ secrets.DO_HOST }}
-              username: linuxserver.io
-              password: ${{ secrets.DO_PASSWORD }}
-              port: ${{ secrets.DO_PORT }}
-              script: whoami
+      
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DO_HOST }}
+          username: linuxserver.io
+          password: ${{ secrets.DO_PASSWORD }}
+          port: ${{ secrets.DO_PORT }}
+          script: whoami
 
       # - name: SSH into DigitalOcean and Deploy
       #   uses: appleboy/ssh-action@master
