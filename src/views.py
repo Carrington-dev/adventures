@@ -5,7 +5,7 @@ from src import app
 
 @app.context_processor
 def inject_globals():
-    company = "Elite Adventures"
+    company = "Explore Expertz"
     return {
         "company": company,
         "year": 2025,
