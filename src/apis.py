@@ -110,19 +110,19 @@ def add_user():
 @app.route("/api/subscribe")
 def subscribe():
     """
-    Simple Hello World API
+    Simple Subscribe API
     ---
     tags:
       - Simple Views
     responses:
       200:
-        description: Returns a simple greeting
+        description: Returns a feedback message
         schema:
           type: object
           properties:
             message:
               type: string
-              example: "Hello, World!"
+              example: "You are now subscribed to our newsletter!."
     """
     return jsonify({
         "message": "You are now subscribed to our newsletter!."
