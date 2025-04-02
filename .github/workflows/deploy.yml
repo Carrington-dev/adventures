@@ -45,7 +45,7 @@ jobs:
           username: ubuntu
           # host: ${{ secrets.DO_HOST }}
           # username: ${{ secrets.DO_USER }}
-          key: ${{ secrets.DO_SSH_KEY }}
+          # key: ${{ secrets.DO_SSH_KEY }}
           script: |
             # cd /home/ubuntu/adventures
             cd adventures
