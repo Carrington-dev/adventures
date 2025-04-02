@@ -106,6 +106,15 @@ def test_protected_dashboard(client):
     response = client.get("/dashboard", follow_redirects=True)
     assert response.status_code == 200
     assert b"Login" in response.data  # Should redirect to login page
+
+sudo ln -s /home/ubuntu/adventures/settings/gunicorn.socket /etc/systemd/system/gunicorn.socket
+sudo ln -s /home/ubuntu/adventures/settings/gunicorn.service /etc/systemd/system/gunicorn.service
+sudo systemctl start gunicorn
+sudo systemctl enable gunicorn
+
+sudo ln -s /home/ubuntu/adventures/settings/ad.conf /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/ad.conf /etc/nginx/sites-enabled
+
 ```
 
 ---
