@@ -107,8 +107,23 @@ def add_user():
     except:
         return jsonify({'message': 'User with similar credentials already exists'}), 400
 
-@app.route("/subscribe")
+@app.route("/api/subscribe")
 def subscribe():
+    """
+    Simple Hello World API
+    ---
+    tags:
+      - Simple Views
+    responses:
+      200:
+        description: Returns a simple greeting
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: "Hello, World!"
+    """
     return jsonify({
         "message": "You are now subscribed to our newsletter!."
     })
