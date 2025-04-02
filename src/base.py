@@ -4,9 +4,9 @@ from flasgger import Swagger
 app = Flask(__name__, static_url_path="/static", static_folder="../static", template_folder='../templates')
 
 app.config['SWAGGER'] = {
-    'title': 'This is an adventure API',
+    'title': 'TravelEase API',
     'uiversion': 3,  # Use Swagger UI version 3
-    'description': 'This is a simple adventure API with basic endpoints',
+    'description': 'The ultimate travel booking and management solution',
     'version': '1.0.0'
 }
 
