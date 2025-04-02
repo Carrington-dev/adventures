@@ -45,7 +45,8 @@ jobs:
           username: ${{ secrets.DO_USER }}
           key: ${{ secrets.DO_SSH_KEY }}
           script: |
-            cd /home/ubuntu/adventures
+            # cd /home/ubuntu/adventures
+            cd adventures
             git pull origin main
             source venv/bin/activate
             pip install -r requirements.txt
