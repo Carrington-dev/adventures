@@ -39,7 +39,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: SSH into DigitalOcean and Deploy
-        uses: appleboy/ssh-action@0.1.4
+        uses: appleboy/ssh-action@master
         with:
           host: 157.245.140.54
           username: ubuntu
