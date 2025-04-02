@@ -16,11 +16,14 @@ template = {
         "title": "TravelEase API",
         "description": "The ultimate travel booking and management solution",
         "version": "1.0.0",
+        "hide_flask_swagger": True
     },
     "specs_route": "/docs/",
     "hide_flask_swagger": True,  # Removes the "Powered by Flasgger" message
     "schemes": ["http", "https"],
 }
+
+
 
 swagger = Swagger(app, template=template)
 
