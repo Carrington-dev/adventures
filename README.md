@@ -123,6 +123,7 @@ sudo ln -s /etc/nginx/sites-available/ad.conf /etc/nginx/sites-enabled
 https://roadtrippers.co.za/contact-us/
 https://www.thriftyadventures.co.za/pages/contact
 https://www.roadtravel.co.za/
+sudo certbot --nginx -d ad.vroomhive.co.zw -d www.ad.vroomhive.co.zw
 ```
 
 ---
