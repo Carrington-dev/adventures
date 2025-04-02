@@ -57,3 +57,8 @@ def subscribe():
     return jsonify({
         "message": "You are now subscribed to our newsletter!."
     })
+
+@app.route('/user/<int:user_id>', methods=['GET'])
+def get_user_fast(user_id):
+    user = User.query.filter_by(id=user_id).first_or_404(description="User not found")
+    return jsonify({'id': user.id, 'username': user.username, 'email': user.email})
