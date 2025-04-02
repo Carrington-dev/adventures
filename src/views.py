@@ -10,7 +10,7 @@ def inject_globals():
         "company": company,
         "year": 2025,
         "phone": '+27 (0) 78 735 2242',
-        "title": 'ThrifyYour Gateway to Adventure!',
+        "title": 'Your Gateway to Adventure!',
         "email": 'hello@eliteadventures.co.za',
         "address": "395 Francis Baard Street</p><p>Pretoria Central, 0001/2</p><p>South Africa",
         "copyright_notice": f"© {datetime.now().year} { company }. All rights reserved.",
