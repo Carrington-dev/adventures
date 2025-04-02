@@ -38,22 +38,34 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: SSH into DigitalOcean and Deploy
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.DO_HOST }}
-          USERNAME: ${{ secrets.DO_USER }}
-          PORT: ${{ secrets.DO_PORT }}
-          KEY: ${{ secrets.DO_SSH_KEY }}
-          # host: 157.245.140.54
-          # username: ubuntu
-          # host: ${{ secrets.DO_HOST }}
-          # username: ${{ secrets.DO_USER }}
-          # key: ${{ secrets.DO_SSH_KEY }}
-          script: |
-            # cd /home/ubuntu/adventures
-            cd adventures
-            git pull origin main
-            source venv/bin/activate
-            pip install -r requirements.txt
-            sudo systemctl restart gunicorn
+      - name: Build
+        runs-on: ubuntu-latest
+        steps:
+          - name: executing remote ssh commands using password
+            uses: appleboy/ssh-action@v1
+            with:
+              host: ${{ secrets.DO_HOST }}
+              username: linuxserver.io
+              password: ${{ secrets.DO_PASSWORD }}
+              port: ${{ secrets.DO_PORT }}
+              script: whoami
+
+      # - name: SSH into DigitalOcean and Deploy
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #     host: ${{ secrets.DO_HOST }}
+      #     USERNAME: ${{ secrets.DO_USER }}
+      #     PORT: ${{ secrets.DO_PORT }}
+      #     KEY: ${{ secrets.DO_SSH_KEY }}
+      #     # host: 157.245.140.54
+      #     # username: ubuntu
+      #     # host: ${{ secrets.DO_HOST }}
+      #     # username: ${{ secrets.DO_USER }}
+      #     # key: ${{ secrets.DO_SSH_KEY }}
+      #     script: |
+      #       # cd /home/ubuntu/adventures
+      #       cd adventures
+      #       git pull origin main
+      #       source venv/bin/activate
+      #       pip install -r requirements.txt
+      #       sudo systemctl restart gunicorn
