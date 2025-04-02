@@ -25,7 +25,7 @@ def get_all_users():
 @app.route('/api/users', methods=['POST'])
 def add_user():
     """
-    Register a new user
+    Creates a new user
     ---
     tags:
       - Users
