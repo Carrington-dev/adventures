@@ -22,3 +22,10 @@ def get_all_users():
 @app.route("/api/users")
 def create_a_user():
     return users
+
+
+@app.route("/subscribe")
+def subscribe():
+    return jsonify({
+        "message": "You are now subscribed to our newsletter!."
+    })
