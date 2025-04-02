@@ -47,6 +47,7 @@ jobs:
           password: ${{ secrets.DO_PASSWORD }}
           port: ${{ secrets.DO_PORT }}
           script: |
+            sudo -u 
             cd adventures
             eval $(ssh-agent -s)
             ssh-add ~/.ssh/id_git_key
@@ -55,9 +56,10 @@ jobs:
             pip install -r requirements.txt
             # sudo systemctl restart gunicorn
             sudo service gunicorn restart
-            echo "${{ secrets.DO_PASSWORD }}"             
+            # echo "${{ secrets.DO_PASSWORD }}"             
             sudo service nginx restart
-            echo "${{ secrets.DO_PASSWORD }}"
+            # echo "${{ secrets.DO_PASSWORD }}"
+            
 
 
       # - name: SSH into DigitalOcean and Deploy
