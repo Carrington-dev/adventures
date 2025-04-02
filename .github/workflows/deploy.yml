@@ -46,7 +46,10 @@ jobs:
           username: ${{ secrets.DO_USER }}
           password: ${{ secrets.DO_PASSWORD }}
           port: ${{ secrets.DO_PORT }}
-          script: whoami
+          script: |
+            whoami
+            ls -a
+            pwd
 
       # - name: SSH into DigitalOcean and Deploy
       #   uses: appleboy/ssh-action@master
