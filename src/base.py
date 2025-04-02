@@ -17,6 +17,8 @@ template = {
         "description": "The ultimate travel booking and management solution",
         "version": "1.0.0",
     },
+    "specs_route": "/docs/",
+    "hide_flask_swagger": True,  # Removes the "Powered by Flasgger" message
     "schemes": ["http", "https"],
 }
 
