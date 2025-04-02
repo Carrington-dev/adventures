@@ -19,9 +19,7 @@ def api_about():
 @app.route("/api/users")
 def get_all_users():
     users = User.query.all()  # Query all users from the database
-    # user_list = []
-    # for user in users:
-    #     user_list.append({'id': user.id, 'username': user.username, 'email': user.email})
+    
     return users
 
 @app.route('/api/users', methods=['POST'])
