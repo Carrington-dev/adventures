@@ -4,8 +4,23 @@ from src import app, db, User
 
 users = []
 
-@app.route("/api/home")
+@app.route("/api")
 def api_home():
+    """
+    Home API
+    ---
+    # tags:
+    #   - Simple Views
+    responses:
+      200:
+        description: Returns a feedback message
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: "You are now subscribed to our newsletter!."
+    """
     return jsonify({
         "message": "Hi Carrington, my name is Wonderful"
     })
