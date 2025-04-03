@@ -201,3 +201,41 @@ def get_user_fast(user_id):
     if not user:
         return jsonify({'error': 'User not found'}), 404
     return jsonify(user)
+
+# Delete User by ID
+@app.route('/api/users/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    """
+    Delete User by ID
+    ---
+    tags:
+      - Users
+    summary: Delete a user from the database
+    notes: Provide a valid user ID to remove a user from the system.
+    parameters:
+      - name: user_id
+        in: path
+        type: integer
+        required: true
+        description: The unique ID of the user to be deleted
+        example: 1
+    responses:
+      200:
+        description: User deleted successfully
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: "User deleted successfully"
+      404:
+        description: User not found
+    """
+    user = User.query.get(user_id)
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+    
+    db.session.delete(user)
+    db.session.commit()
+    
+    return jsonify({'message': 'User deleted successfully'}), 200
