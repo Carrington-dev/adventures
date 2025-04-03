@@ -239,3 +239,69 @@ def delete_user(user_id):
     db.session.commit()
     
     return jsonify({'message': 'User deleted successfully'}), 200
+
+# Update User by ID
+@app.route('/api/users/<int:user_id>', methods=['PUT'])
+def update_user(user_id):
+    """
+    Update User by ID
+    ---
+    # tags:
+    #   - Users
+    summary: Update user details
+    notes: Provide the user ID and the updated data to modify a user's details.
+    parameters:
+      - name: user_id
+        in: path
+        type: integer
+        required: true
+        description: The unique ID of the user to update
+        example: 1
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            username:
+              type: string
+              example: "new_username"
+            email:
+              type: string
+              example: "new_email@example.com"
+    responses:
+      200:
+        description: User updated successfully
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: "User updated successfully"
+      404:
+        description: User not found
+      400:
+        description: Invalid request data
+    """
+    user = User.query.get(user_id)
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+
+    data = request.get_json()
+    last_name = data.get('last_name')
+    first_name = data.get('first_name')
+    username = data.get('username')
+    email = data.get('email')
+
+    if username:
+        user.username = username
+    if email:
+        user.email = email
+    if first_name:
+        user.first_name = first_name
+    if last_name:
+        user.last_name = last_name
+
+    db.session.commit()
+    
+    return jsonify({'message': 'User updated successfully'}), 200
