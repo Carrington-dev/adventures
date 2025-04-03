@@ -342,3 +342,45 @@ def get_my_profile():
     user = User.query.first()  # Simulate getting the logged-in user
     
     return jsonify({'id': user.id, 'username': user.username, 'email': user.email})
+
+
+@app.route('/api/users/search', methods=['GET'])
+def search_users():
+    """
+    Search users by username
+    ---
+    tags:
+      - Users
+    summary: Find users by a partial username
+    parameters:
+      - name: query
+        in: query
+        type: string
+        required: true
+        description: Part of the username to search for
+        example: john
+    responses:
+      200:
+        description: List of matching users
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+              username:
+                type: string
+                example: johndoe
+              email:
+                type: string
+                example: johndoe@example.com
+    """
+    query = request.args.get('query', '')
+    
+    users = User.query.filter(User.username.ilike(f"%{query}%")).all()
+    
+    return jsonify([
+        {'id': user.id, 'username': user.username, 'email': user.email} for user in users
+    ])
