@@ -13,7 +13,8 @@ app = Flask(__name__,
 #     'description': 'The ultimate travel booking and management solution',
 #     'version': '1.0.0'
 # }
-app.config['SECRET_KEY'] = config('SECRET_KEY')
+
+app.config['SECRET_KEY'] = config('SECRET_KEY', default='localhost')
 
 
 
