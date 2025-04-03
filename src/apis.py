@@ -212,6 +212,85 @@ def delete_user(user_id):
 
 # Update User by ID
 @app.route('/api/users/<int:user_id>', methods=['PUT'])
+def put_user(user_id):
+    """
+    Update User by ID
+    ---
+    tags:
+      - Users
+    summary: Update user details
+    notes: Provide the user ID and the updated data to modify a user's details.
+    parameters:
+      - name: user_id
+        in: path
+        type: integer
+        required: true
+        description: The unique ID of the user to update
+        example: 1
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          properties:
+            username:
+              type: string
+              example: "new_username"
+            email:
+              type: string
+              example: "new_email@example.com"
+            first_name:
+              type: string
+              example: "Pythongton"
+            last_name:
+              type: string
+              example: "Mudau"
+           
+    responses:
+      200:
+        description: User updated successfully
+        schema:
+          type: object
+          properties:
+            message:
+              type: string
+              example: "User updated successfully"
+      404:
+        description: User not found
+      400:
+        description: Invalid request data
+    """
+    user = User.query.get(user_id)
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+
+    data = request.get_json()
+    last_name = data.get('last_name')
+    first_name = data.get('first_name')
+    username = data.get('username')
+    email = data.get('email')
+    is_admin = data.get('is_admin')
+    password = data.get('password')
+
+    if username:
+        user.username = username
+    if email:
+        user.email = email
+    if first_name:
+        user.first_name = first_name
+    if last_name:
+        user.last_name = last_name
+
+    if password:
+        user.password = password
+    if is_admin:
+        user.is_admin = is_admin
+
+    db.session.commit()
+    
+    return jsonify({'message': 'User updated successfully', "user": user}), 200
+
+@app.route('/api/users/<int:user_id>', methods=['UPDATE'])
 def update_user(user_id):
     """
     Update User by ID
@@ -269,6 +348,8 @@ def update_user(user_id):
     first_name = data.get('first_name')
     username = data.get('username')
     email = data.get('email')
+    password = data.get('password')
+    is_admin = data.get('is_admin')
 
     if username:
         user.username = username
@@ -278,10 +359,14 @@ def update_user(user_id):
         user.first_name = first_name
     if last_name:
         user.last_name = last_name
+    if password:
+        user.password = password
+    if is_admin:
+        user.is_admin = is_admin
 
     db.session.commit()
     
-    return jsonify({'message': 'User updated successfully'}), 200
+    return jsonify({'message': 'User updated successfully', "user": user}), 200
 
 @app.route('/api/users/me', methods=['GET'])
 def get_my_profile():
