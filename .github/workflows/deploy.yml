@@ -54,12 +54,12 @@ jobs:
             git pull origin main
             source venv/bin/activate
             pip install -r requirements.txt
+            echo "SECRET_KEY=${{ secrets.DO_PASSWORD }}" > .env
             # sudo systemctl restart gunicorn
             sudo service gunicorn restart
             # echo "${{ secrets.DO_PASSWORD }}"             
             sudo service nginx restart
             # echo "${{ secrets.DO_PASSWORD }}"
-            echo "SECRET_KEY=${{ secrets.DO_PASSWORD }}" > .env
 
             
 
