@@ -269,6 +269,13 @@ def update_user(user_id):
             email:
               type: string
               example: "new_email@example.com"
+            first_name:
+              type: string
+              example: "Pythongton"
+            last_name:
+              type: string
+              example: "Mudau"
+           
     responses:
       200:
         description: User updated successfully
