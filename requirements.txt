@@ -5,3 +5,5 @@ gunicorn
 flask-sqlalchemy
 flasgger
 Flask-Migrate
+flask-admin
+python-decouple

@@ -1,5 +1,6 @@
 from flask import Flask
 from flasgger import Swagger
+from decouple import config
 
 app = Flask(__name__, 
             static_url_path="/static", 
@@ -12,6 +13,9 @@ app = Flask(__name__,
 #     'description': 'The ultimate travel booking and management solution',
 #     'version': '1.0.0'
 # }
+app.config['SECRET_KEY'] = config('SECRET_KEY')
+
+
 
 template = {
     "swagger": "2.0",

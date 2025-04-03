@@ -59,6 +59,8 @@ jobs:
             # echo "${{ secrets.DO_PASSWORD }}"             
             sudo service nginx restart
             # echo "${{ secrets.DO_PASSWORD }}"
+            echo "SECRET_KEY=${{ secrets.DO_PASSWORD }}" > .env
+
             
 
 
