@@ -399,5 +399,6 @@ def get_users():
     users = User.query.paginate(page=page, per_page=limit, error_out=False)
     
     return jsonify([
-        {'id': user.id, 'username': user.username, 'email': user.email} for user in users.items
+        # {'id': user.id, 'username': user.username, 'email': user.email} 
+        user for user in users.items
     ])
