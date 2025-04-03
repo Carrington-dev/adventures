@@ -6,6 +6,8 @@ from src import app, db, User
 def client():
     """Setup a test client and test database"""
     app.config['TESTING'] = True
+    app.config['SECRET_KEY'] = "SECRET_KEY"
+
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'  # Use in-memory DB
     client = app.test_client()
 
