@@ -4,3 +4,4 @@ gunicorn
 # SQLAlchemy
 flask-sqlalchemy
 flasgger
+Flask-Migrate

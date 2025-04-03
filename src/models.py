@@ -1,8 +1,10 @@
 from dataclasses import dataclass
 from src import app
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)  # Initialize Flask-Migrate
 
 # Define a model (Table) for the database
 @dataclass
