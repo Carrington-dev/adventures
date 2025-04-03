@@ -312,3 +312,33 @@ def update_user(user_id):
     db.session.commit()
     
     return jsonify({'message': 'User updated successfully'}), 200
+
+@app.route('/api/users/me', methods=['GET'])
+def get_my_profile():
+    """
+    Get my profile
+    ---
+    tags:
+      - Users
+    summary: Retrieve details of the currently authenticated user
+    responses:
+      200:
+        description: User profile details
+        schema:
+          type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+            username:
+              type: string
+              example: johndoe
+            email:
+              type: string
+              example: johndoe@example.com
+    """
+    # In a real app, you'd extract the logged-in user from a JWT token
+    # Example: user_id = get_jwt_identity()
+    user = User.query.first()  # Simulate getting the logged-in user
+    
+    return jsonify({'id': user.id, 'username': user.username, 'email': user.email})
