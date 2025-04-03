@@ -8,7 +8,9 @@ def client():
     app.config['TESTING'] = True
     app.config['SECRET_KEY'] = "SECRET_KEY"
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'  # Use in-memory DB
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'  # Use in-memory DB
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///memory.db'  # Using SQLite
+
     client = app.test_client()
 
     with app.app_context():
