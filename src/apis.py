@@ -384,3 +384,51 @@ def search_users():
     return jsonify([
         {'id': user.id, 'username': user.username, 'email': user.email} for user in users
     ])
+
+@app.route('/api/users', methods=['GET'])
+def get_users():
+    """
+    Get all users with pagination
+    ---
+    tags:
+      - Users
+    summary: Retrieve a list of users
+    parameters:
+      - name: page
+        in: query
+        type: integer
+        required: false
+        description: The page number (default is 1)
+        example: 1
+      - name: limit
+        in: query
+        type: integer
+        required: false
+        description: The number of users per page (default is 10)
+        example: 10
+    responses:
+      200:
+        description: A list of users
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+              username:
+                type: string
+                example: johndoe
+              email:
+                type: string
+                example: johndoe@example.com
+    """
+    page = request.args.get('page', 1, type=int)
+    limit = request.args.get('limit', 10, type=int)
+    
+    users = User.query.paginate(page=page, per_page=limit, error_out=False)
+    
+    return jsonify([
+        {'id': user.id, 'username': user.username, 'email': user.email} for user in users.items
+    ])
