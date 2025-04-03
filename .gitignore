@@ -168,3 +168,19 @@ cython_debug/
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/flask
+
+
+# Flask-Migrate
+migrations/
+
+# SQLite database files
+*.sqlite3
+*.db
+
+# Logs & Temporary Files
+logs/
+*.log
+*.out
+*.pid
+*.gz
+*.zip
