@@ -208,8 +208,8 @@ def delete_user(user_id):
     """
     Delete User by ID
     ---
-    tags:
-      - Users
+    # tags:
+    #   - Users
     summary: Delete a user from the database
     notes: Provide a valid user ID to remove a user from the system.
     parameters:
