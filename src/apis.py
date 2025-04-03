@@ -41,6 +41,8 @@ def add_user():
             - last_name
             - first_name
             - email
+            - is_admin
+            - password
           properties:
             first_name:
               type: string
@@ -54,6 +56,12 @@ def add_user():
             email:
               type: string
               example: johndoe@example.com
+            password:
+              type: string
+              example: #Jopempe2043
+            is_admin:
+              type: string
+              example: false
     responses:
       201:
         description: User registered successfully
@@ -67,6 +75,8 @@ def add_user():
     last_name = data.get('last_name')
     username = data.get('username')
     email = data.get('email')
+    password = data.get('password')
+    is_admin = data.get('is_admin')
 
     # Check if username and email are provided
     if not username or not email:
@@ -74,11 +84,19 @@ def add_user():
         
     if not id:
         return jsonify({"message": 'Id is required'}), 400
+    
+    if not password:
+        return jsonify({"message": 'Password is required'}), 400
         
 
     # Create a new user and save it to the database
     try:
-        new_user = User(username=username, email=email, first_name=first_name, last_name=last_name)
+        new_user = User(username=username, 
+                        email=email, 
+                        first_name=first_name, 
+                        last_name=last_name,
+                        is_admin=is_admin,
+                        password=password)
         db.session.add(new_user)
         db.session.commit()
 
