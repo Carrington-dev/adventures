@@ -2,8 +2,6 @@ import uuid
 from flask import request, jsonify
 from src import app, db, User
 
-users = []
-
 @app.route("/api")
 def api_home():
     """
