@@ -27,6 +27,8 @@ jobs:
       - name: Run Tests
         run: |
           source venv/bin/activate
+          echo "SECRET_KEY=${{ secrets.DO_PASSWORD }}" > .env
+
           pytest
           # pytest --maxfail=5 --disable-warnings --tb=short --cov=app tests/
 
