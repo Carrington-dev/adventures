@@ -44,34 +44,6 @@ def api_about():
         "message": "About Us"
     }) 
 
-@app.route("/api/users")
-def get_all_users():
-    """
-    Get all users
-    ---
-    tags:
-      - Users
-    responses:
-      200:
-        description: A list of all users
-        schema:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-                example: 1
-              username:
-                type: string
-                example: johndoe
-              email:
-                type: string
-                example: johndoe@example.com
-    """
-    users = User.query.all()  # Query all users from the database
-    return users
-
 @app.route('/api/users', methods=['POST'])
 def add_user():
     """
