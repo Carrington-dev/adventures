@@ -144,3 +144,33 @@ This will check:
 ✅ Dashboard is protected and redirects to login  
 
 <!-- Would you like to add **integration tests, API testing, or security penetration testing**? 🚀 -->
+```bash
+@app.route("/api/users")
+def get_all_users():
+    """
+    Get all users
+    ---
+    tags:
+      - Users
+    responses:
+      200:
+        description: A list of all users
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+              username:
+                type: string
+                example: johndoe
+              email:
+                type: string
+                example: johndoe@example.com
+    """
+    users = User.query.all()  # Query all users from the database
+    return users
+
+```
