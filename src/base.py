@@ -14,7 +14,7 @@ app = Flask(__name__,
 #     'version': '1.0.0'
 # }
 
-app.config['SECRET_KEY'] = config('SECRET_KEY', default='localhost')
+app.config['SECRET_KEY'] = config('SECRET_KEY', default='oxpybBPmAWfvx4HlZ8TVxwR0UHfYJ6kO')
 
 
 
