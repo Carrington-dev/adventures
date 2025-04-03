@@ -30,5 +30,5 @@ template = {
 
 swagger = Swagger(app, template=template)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydatabase.db'  # Using SQLite
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///adventure.db'  # Using SQLite
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional but recommended
