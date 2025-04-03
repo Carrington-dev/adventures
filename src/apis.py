@@ -100,7 +100,8 @@ def add_user():
         db.session.add(new_user)
         db.session.commit()
 
-        return jsonify({'message': 'User added successfully'}), 201
+        # return jsonify({'message': 'User added successfully'}), 201
+        return jsonify(new_user), 201
     except:
         return jsonify({'message': 'User with similar credentials already exists'}), 400
 
