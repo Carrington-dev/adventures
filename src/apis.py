@@ -5,7 +5,7 @@ from src import app, db, User
 @app.route("/api")
 def api_home():
     """
-    Home API
+    Welcome API
     ---
     tags:
       - Basic Views
@@ -20,29 +20,8 @@ def api_home():
               example: "You are now subscribed to our newsletter!."
     """
     return jsonify({
-        "message": "Hi Carrington, my name is Wonderful"
+        "message": "You are now subscribed to our newsletter!."
     })
-
-@app.route("/api/about")
-def api_about():
-    """
-    Home API
-    ---
-    # tags:
-    #   - Basic Views
-    responses:
-      200:
-        description: Returns a feedback message
-        schema:
-          type: object
-          properties:
-            message:
-              type: string
-              example: "About Us"
-    """
-    return jsonify({
-        "message": "About Us"
-    }) 
 
 @app.route('/api/users', methods=['POST'])
 def add_user():
