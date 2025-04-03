@@ -7,8 +7,8 @@ def api_home():
     """
     Home API
     ---
-    # tags:
-    #   - Simple Views
+    tags:
+      - Basic Views
     responses:
       200:
         description: Returns a feedback message
@@ -29,7 +29,7 @@ def api_about():
     Home API
     ---
     # tags:
-    #   - Simple Views
+    #   - Basic Views
     responses:
       200:
         description: Returns a feedback message
@@ -49,8 +49,8 @@ def get_all_users():
     """
     Get all users
     ---
-    # tags:
-    #   - Users
+    tags:
+      - Users
     responses:
       200:
         description: A list of all users
@@ -77,8 +77,8 @@ def add_user():
     """
     Creates a new user
     ---
-    # tags:
-    #   - Users
+    tags:
+      - Users
     parameters:
       - name: body
         in: body
@@ -140,8 +140,8 @@ def subscribe():
     """
     Simple Subscribe API
     ---
-    # tags:
-    #   - Simple Views
+    tags:
+      - Basic Views
     responses:
       200:
         description: Returns a feedback message
@@ -161,8 +161,8 @@ def get_user_fast(user_id):
     """
     Get User by ID
     ---
-    # tags:
-    #   - Users
+    tags:
+      - Users
     summary: Retrieve a user by their unique ID
     notes: Use this endpoint to fetch user details by providing their unique user ID.
     parameters:
@@ -208,8 +208,8 @@ def delete_user(user_id):
     """
     Delete User by ID
     ---
-    # tags:
-    #   - Users
+    tags:
+      - Users
     summary: Delete a user from the database
     notes: Provide a valid user ID to remove a user from the system.
     parameters:
@@ -246,8 +246,8 @@ def update_user(user_id):
     """
     Update User by ID
     ---
-    # tags:
-    #   - Users
+    tags:
+      - Users
     summary: Update user details
     notes: Provide the user ID and the updated data to modify a user's details.
     parameters:
@@ -342,3 +342,45 @@ def get_my_profile():
     user = User.query.first()  # Simulate getting the logged-in user
     
     return jsonify({'id': user.id, 'username': user.username, 'email': user.email})
+
+
+@app.route('/api/users/search', methods=['GET'])
+def search_users():
+    """
+    Search users by username
+    ---
+    tags:
+      - Users
+    summary: Find users by a partial username
+    parameters:
+      - name: query
+        in: query
+        type: string
+        required: true
+        description: Part of the username to search for
+        example: john
+    responses:
+      200:
+        description: List of matching users
+        schema:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+              username:
+                type: string
+                example: johndoe
+              email:
+                type: string
+                example: johndoe@example.com
+    """
+    query = request.args.get('query', '')
+    
+    users = User.query.filter(User.username.ilike(f"%{query}%")).all()
+    
+    return jsonify([
+        {'id': user.id, 'username': user.username, 'email': user.email} for user in users
+    ])
