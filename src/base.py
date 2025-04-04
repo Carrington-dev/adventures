@@ -4,8 +4,8 @@ from decouple import config
 
 app = Flask(__name__, 
             static_url_path="/static", 
-            static_folder="../static", 
-            template_folder='../templates')
+            static_folder="static", 
+            template_folder='templates')
 
 # app.config['SWAGGER'] = {
 #     'title': 'TravelEase API',
