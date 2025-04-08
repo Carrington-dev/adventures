@@ -1,6 +1,58 @@
+from threading import Thread
 import uuid
 from flask import request, jsonify
 from src import app, db, User
+from sparkpost import SparkPost
+from flask import render_template, jsonify, request
+from decouple import config
+from string import Template
+
+SPARKPOST_API_KEY = config("MAIL_PASSWORD")  # Consider using environment variables
+ADMIN_EMAIL = config('ADMIN_EMAIL')
+sp = SparkPost(SPARKPOST_API_KEY)
+
+
+def load_html_template(context, template="send.html") -> str:
+    print(context)
+    return render_template(template, **context)
+    # with open(("send.html"), "r", encoding="utf-8") as file:
+    #     template = Template(file.read())
+    #     return template.safe_substitute({"substitution_data": { 
+    #             "name": "john",
+    #             "otp": "123456"
+    #         }})
+
+def send_email_async(app, to, subject, message, email, full_name, template):
+    with app.app_context():
+      try:
+          print(to, subject, message, email, full_name)
+          context = {
+              "name": full_name,
+              "subject": subject,
+              "email": email,
+              "subject": subject,
+              "message": subject,
+          }
+          html_content = load_html_template(template=template, context=context)
+          sp.transmissions.send(
+              # recipients=[to],
+              recipients=[
+                  {
+                      'address': to,
+                      # 'substitution_data': {
+                      #     'username': 'Carrington06',
+                      #     'name': 'Carrington',
+                      #     'otp': '876098'
+                      # }
+                  },
+              ],
+              html=html_content,
+              from_email='Payglen <noreply@ruma.stemgon.co.za>',
+              subject=subject
+          )
+      except Exception as e:
+          print(f"Email sending failed: {e}")
+
 
 @app.route("/api")
 def api_home():
@@ -488,3 +540,42 @@ def get_users():
         # {'id': user.id, 'username': user.username, 'email': user.email} 
         user for user in users.items
     ])
+
+
+
+@app.route('/send-email', methods=['POST'])
+def send_email():
+    data = request.form
+    if data is None:
+        return jsonify({"error": "No JSON data provided"}), 400
+    
+    to = data.get('to', ADMIN_EMAIL)
+    subject = data.get('subject', "Testing App")
+    message = data.get('message', "Testing App")
+    email = data.get('email', ADMIN_EMAIL)
+    full_name = data.get('name', "Harry Porter")
+    template = "message.html"
+
+    # Send email in a background thread
+    Thread(target=send_email_async, args=(app, to, subject, message, email, full_name, template)).start()
+
+    return jsonify({'status': 'Email is being sent asynchronously'}), 200
+
+
+
+@app.route('/confirm-registration', methods=['POST'])
+def send_registration_email():
+    data = request.get_json()
+    if data is None:
+        return jsonify({"error": "No JSON data provided"}), 400
+    
+    to = data.get('to', ADMIN_EMAIL)
+    subject = data.get('subject', "Testing App")
+    message = data.get('message', "Testing App")
+    print(subject)
+    try:
+        # Send email in a background thread
+        Thread(target=send_email_async, args=(app, to, subject, message)).start()
+        return jsonify({'status': 'We are pleased to inform you that your registration has been successfully completed!'}), 200
+    except Exception as e:
+        return jsonify({"status": f"Registration failed: {e}"})
