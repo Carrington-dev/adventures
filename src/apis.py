@@ -13,7 +13,6 @@ sp = SparkPost(SPARKPOST_API_KEY)
 
 
 def load_html_template(context, template="send.html") -> str:
-    print(context)
     return render_template(template, **context)
     # with open(("send.html"), "r", encoding="utf-8") as file:
     #     template = Template(file.read())
@@ -25,7 +24,6 @@ def load_html_template(context, template="send.html") -> str:
 def send_email_async(app, to, subject, message, email, full_name, template):
     with app.app_context():
       try:
-          print(to, subject, message, email, full_name)
           context = {
               "name": full_name,
               "subject": subject,
@@ -51,7 +49,7 @@ def send_email_async(app, to, subject, message, email, full_name, template):
               subject=subject
           )
       except Exception as e:
-          print(f"Email sending failed: {e}")
+          return (f"Email sending failed: {e}")
 
 
 @app.route("/api")
@@ -545,6 +543,42 @@ def get_users():
 
 @app.route('/send-email', methods=['POST'])
 def send_email():
+    """
+    Send email after user contact us
+    ---
+    tags:
+      - Mailing
+    parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          required:
+            - name
+            - subject
+            - message
+            - email
+          properties:
+            name:
+              type: string
+              example: Maanda
+            subject:
+              type: string
+              example: FAQs Not Updated
+            message:
+              type: string
+              example: Good day I hope you are well. You FAQ is not updated,
+            email:
+              type: string
+              example: johndoe@example.com
+            
+    responses:
+      201:
+        description: Your information was sent!.
+      400:
+        description: Your information was not sent!.
+    """
     data = request.form
     if data is None:
         return jsonify({"error": "No JSON data provided"}), 400
@@ -559,12 +593,49 @@ def send_email():
     # Send email in a background thread
     Thread(target=send_email_async, args=(app, to, subject, message, email, full_name, template)).start()
 
-    return jsonify({'status': 'Email is being sent asynchronously'}), 200
+    return jsonify({'status': 'Your information was sent!.'}), 200
 
 
 
 @app.route('/confirm-registration', methods=['POST'])
 def send_registration_email():
+    """
+    Send email after user creation
+    ---
+    tags:
+      - Mailing
+    parameters:
+      - name: body
+        in: body
+        required: true
+        schema:
+          type: object
+          required:
+            - name
+            - subject
+            - message
+            - email
+          properties:
+            name:
+              type: string
+              example: Maanda
+            subject:
+              type: string
+              example: FAQs Not Updated
+            message:
+              type: string
+              example: Good day I hope you are well. You FAQ is not updated,
+            email:
+              type: string
+              example: johndoe@example.com
+            
+    responses:
+      201:
+        description: Your information was sent!.
+      400:
+        description: Your information was not sent!.
+    """
+    
     data = request.get_json()
     if data is None:
         return jsonify({"error": "No JSON data provided"}), 400
@@ -572,7 +643,6 @@ def send_registration_email():
     to = data.get('to', ADMIN_EMAIL)
     subject = data.get('subject', "Testing App")
     message = data.get('message', "Testing App")
-    print(subject)
     try:
         # Send email in a background thread
         Thread(target=send_email_async, args=(app, to, subject, message)).start()
