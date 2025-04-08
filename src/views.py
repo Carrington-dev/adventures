@@ -1,6 +1,11 @@
 
 from datetime import datetime
-from flask import render_template
+from threading import Thread
+from sparkpost import SparkPost
+from flask import render_template, jsonify, request
+from decouple import config
+from string import Template
+
 from src import app
 
 @app.context_processor
@@ -16,6 +21,7 @@ def inject_globals():
         "copyright_notice": f"© {datetime.now().year} { company }. All rights reserved.",
         "copyright": f"""© <span>{datetime.now().year}</span><strong class="px-1 sitename">{ company }.</strong> <span>All Rights Reserved.</span>""",
     }
+
 
 @app.route("/")
 def home():
@@ -45,4 +51,3 @@ def team():
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
-

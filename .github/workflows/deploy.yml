@@ -28,6 +28,8 @@ jobs:
         run: |
           source venv/bin/activate
           echo "SECRET_KEY=${{ secrets.DO_PASSWORD }}" > .env
+          echo "MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}" >> .env
+          echo "ADMIN_EMAIL=${{ secrets.ADMIN_EMAIL }}" >> .env
 
           pytest
           # pytest --maxfail=5 --disable-warnings --tb=short --cov=app tests/
