@@ -59,6 +59,8 @@ jobs:
             source venv/bin/activate
             pip install -r requirements.txt
             echo "SECRET_KEY=${{ secrets.DO_PASSWORD }}" > .env
+            echo "MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}" >> .env
+            echo "ADMIN_EMAIL=${{ secrets.ADMIN_EMAIL }}" >> .env
             # sudo systemctl restart gunicorn
             sudo service gunicorn restart
             # echo "${{ secrets.DO_PASSWORD }}"             
