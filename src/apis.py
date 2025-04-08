@@ -640,12 +640,25 @@ def send_registration_email():
     if data is None:
         return jsonify({"error": "No JSON data provided"}), 400
     
-    to = data.get('to', ADMIN_EMAIL)
+    # to = data.get('to', ADMIN_EMAIL)
+    # subject = data.get('subject', "Testing App")
+    # message = data.get('message', "Testing App")
+    
+    # Send email in a background thread
+    to = data.get('email', ADMIN_EMAIL)
     subject = data.get('subject', "Testing App")
     message = data.get('message', "Testing App")
+    email = data.get('email', ADMIN_EMAIL)
+    full_name = data.get('name', "Harry Porter")
+    template = "send.html"
+
+    # Send email in a background thread
+
     try:
         # Send email in a background thread
-        Thread(target=send_email_async, args=(app, to, subject, message)).start()
+        Thread(target=send_email_async, args=(app, to, subject, message, email, full_name, template)).start()
+        
+        # Thread(target=send_email_async, args=(app, to, subject, message)).start()
         return jsonify({'status': 'We are pleased to inform you that your registration has been successfully completed!'}), 200
     except Exception as e:
-        return jsonify({"status": f"Registration failed: {e}"})
+        return jsonify({"status": f"Registration failed: {e}"}), 400
