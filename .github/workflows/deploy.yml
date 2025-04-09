@@ -9,6 +9,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     environment: development
+    url: https://ad.vroomhive.co.za
 
 
     steps:
