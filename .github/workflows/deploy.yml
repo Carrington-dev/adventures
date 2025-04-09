@@ -8,6 +8,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    environment: development
+
 
     steps:
       - name: Checkout Code
